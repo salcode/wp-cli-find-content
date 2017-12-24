@@ -1,0 +1,24 @@
+{
+    "name": "salcode/wp-cli-find-content",
+    "description": "Find the post where the string appears. Searches post_content and post meta.",
+    "type": "wp-cli-package",
+    "homepage": "https://github.com/salcode/wp-cli-find-content",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sal Ferrarello",
+            "homepage": "https://salferrarello.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": { "salcode\\FindContent\\": "src/" },
+        "files": [ "command.php" ]
+    },
+    "extra": {
+        "commands": [
+            "find-content"
+        ]
+    }
+}

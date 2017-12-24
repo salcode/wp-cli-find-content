@@ -52,6 +52,22 @@ wp find-content <query>... [--format=<format>] [--fields=<fields>]
     | 8  | http://wp.test/display-meta | postmeta |
     +----+-----------------------------+----------+
 
+    # Find instances of "your first post".
+    $ wp find-content 'your first post'
+    +----+----------------------------+----------+
+    | ID | permalink                  | location |
+    +---+-----------------------------+----------+
+    | 1  | http://wp.test/hello-world | content  |
+    +----+----------------------------+----------+
+
+    # Find instances of 'Description of this example post.'
+    $ wp find-content 'Description of this example post.' --fields=ID,permalink,location,meta_key
+    +----+------------------------------+----------+----------------------+
+    | ID | permalink                    | location | meta_key             |
+    +----+------------------------------+----------+----------------------+
+    | 4  | http://wp.test/example-post/ | postmeta | _genesis_description |
+    +----+------------------------------+----------+----------------------+
+
     # Find instances of gravityform 7 or 34's shortcode.
     $ wp find-content 'gravityform id="7"' 'gravityform id="34"'
     +----+-----------------------------+----------+

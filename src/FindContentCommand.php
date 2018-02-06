@@ -63,9 +63,9 @@ class FindContentCommand extends WP_CLI_Command {
 	 *
 	 * @since 0.2.0
 	 *
-	 * @var string
+	 * @var string|null
 	 */
-	protected $regex_delimiter = chr(1);
+	protected $regex_delimiter;
 
 	/**
 	 * Array of posts where query was found.
@@ -205,6 +205,21 @@ class FindContentCommand extends WP_CLI_Command {
 			$assoc_args,
 			'fields',
 			$this->fields
+		);
+		$this->regex = Utils\get_flag_value(
+			$assoc_args,
+			'regex',
+			$this->regex
+		);
+		$this->regex_flags = Utils\get_flag_value(
+			$assoc_args,
+			'regex-flags',
+			$this->regex_flags
+		);
+		$this->regex_delimiter = Utils\get_flag_value(
+			$assoc_args,
+			'regex-delimiter',
+			chr(1)
 		);
 
 		while ( count( $args ) > 0 ) {

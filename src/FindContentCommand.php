@@ -32,6 +32,42 @@ class FindContentCommand extends WP_CLI_Command {
 	protected $query;
 
 	/**
+	 * Treat query string as a regular expression.
+	 *
+	 * When true runs the search as a regular expression
+	 * (without delimiters). The search becomes case-sensitive (i.e. no PCRE
+	 * flags are added). Delimiters must be escaped if they occur in the
+	 * expression.
+	 *
+	 * @since 0.2.0
+	 *
+	 * @var bool
+	 */
+	protected $regex = false;
+
+	/**
+	 * Pass PCRE modifiers to the regex search
+	 * (e.g. 'i' for case-insensitivity).
+	 *
+	 * @since 0.2.0
+	 *
+	 * @var string
+	 */
+	protected $regex_flags = '';
+
+	/**
+	 * Delimiter to use for regex.
+	 *
+	 * The delimiter to use for the regex. It must be escaped if it appears
+	 * in the search string. The default value is the result of `chr(1)`.
+	 *
+	 * @since 0.2.0
+	 *
+	 * @var string
+	 */
+	protected $regex_delimiter = chr(1);
+
+	/**
 	 * Array of posts where query was found.
 	 *
 	 * @since 0.1.0

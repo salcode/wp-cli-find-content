@@ -279,10 +279,7 @@ class FindContentCommand extends WP_CLI_Command {
 			SELECT
 				{$this->get_select_values( 'content' )}
 			FROM `wp_posts`
-			WHERE
-				`post_content` LIKE '%%%s%%'
-				AND `post_name` NOT LIKE '%-revision-%'
-				AND `post_name` NOT LIKE '%-autosave-%'
+			{$this->get_where_clause( 'post_content' )}
 			;",
 			$this->query
 		);
@@ -307,10 +304,7 @@ class FindContentCommand extends WP_CLI_Command {
 			FROM `wp_postmeta`
 				LEFT JOIN `wp_posts`
 				ON `post_id`=`ID`
-			WHERE
-				`meta_value` LIKE '%%%s%%'
-				AND `post_name` NOT LIKE '%-revision-%'
-				AND `post_name` NOT LIKE '%-autosave-%'
+			{$this->get_where_clause( 'meta_value' )}
 			;",
 			$this->query
 		);
@@ -373,6 +367,33 @@ class FindContentCommand extends WP_CLI_Command {
 			";
 		}
 		return $select_values;
+	}
+
+	/**
+	 * Get SQL WHERE clause.
+	 *
+	 * @param string $content_column Either 'post_content' or 'meta_value'
+	 * @return string SQL WHERE clause
+	 */
+	public function get_where_clause( $content_column = 'post_content' ) {
+		if (
+			! in_array(
+				$content_column,
+				array(
+					'post_content',
+					'meta_value',
+				)
+			)
+		) {
+			$content_column = 'post_content';
+		}
+		$where = "WHERE ${content_column} ";
+		$where .= "LIKE '%%%s%%'";
+		$where .= "
+			AND `post_name` NOT LIKE '%-revision-%'
+			AND `post_name` NOT LIKE '%-autosave-%'
+		";
+		return $where;
 	}
 
 	/**

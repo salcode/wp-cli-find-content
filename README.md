@@ -15,31 +15,31 @@ wp find-content <query>... [--format=<format>] [--fields=<fields>]
 
 **Options**
 
-	<query>...
-		The query to find in the database content.
+    <query>...
+        The query to find in the database content.
 
-	[--format=<format>]
-		Render output in a particular format.
-		---
-		default: table
-		options:
-		  - table
-		  - csv
-		  - json
-		  - count
-		  - yaml
-		---
+    [--format=<format>]
+        Render output in a particular format.
+        ---
+        default: table
+        options:
+          - table
+          - csv
+          - json
+          - count
+          - yaml
+        ---
 
-	[--fields=<fields>]
-		Limit the output to specific fields. Defauls to ID,permalink,location.
-		---
-		available fields:
-		   - Column names from wp_posts
-		   - Column names from wp_postmeta
-		   - permalink (for the associated post)
-		   - location ('content' or 'postmeta')
-		   - query (the string being queried)
-		---
+    [--fields=<fields>]
+        Limit the output to specific fields. Defauls to ID,permalink,location.
+        ---
+        available fields:
+          - Column names from wp_posts
+          - Column names from wp_postmeta
+          - permalink (for the associated post)
+          - location ('content' or 'postmeta')
+          - query (the string being queried)
+        ---
 
 **EXAMPLES**
 

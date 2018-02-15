@@ -388,7 +388,11 @@ class FindContentCommand extends WP_CLI_Command {
 			$content_column = 'post_content';
 		}
 		$where = "WHERE ${content_column} ";
-		$where .= "LIKE '%%%s%%'";
+		if ( $this->regex ) {
+			$where .= "REGEXP '%s'";
+		} else {
+			$where .= "LIKE '%%%s%%'";
+		}
 		$where .= "
 			AND `post_name` NOT LIKE '%-revision-%'
 			AND `post_name` NOT LIKE '%-autosave-%'

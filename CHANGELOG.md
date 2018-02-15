@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 ### Added
+- Add support for searching by regular expression ([#3](https://github.com/salcode/wp-cli-find-content/issues/3))
 - Add CHANGELOG.md file ([#4](https://github.com/salcode/wp-cli-find-content/issues/4))
 
 ## [0.1.0] - 2017-12-24

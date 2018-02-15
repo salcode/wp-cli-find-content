@@ -18,6 +18,9 @@ wp find-content <query>... [--format=<format>] [--fields=<fields>]
     <query>...
         The query to find in the database content.
 
+    [--regex]
+        Runs the search as a regular expression (without delimiters). The case-sensitivity of the search is based on the collation of the database table (typically this is case-insensitive).
+
     [--format=<format>]
         Render output in a particular format.
         ---

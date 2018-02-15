@@ -5,7 +5,7 @@ Find the post where the string appears. Searches post_content and post meta.
 
 
 
-Quick links: [Using](#using) | [Installing](#installing) | [Contributing](#contributing) | [Support](#support)
+Quick links: [Using](#using) | [Installing](#installing) | [Contributing](#contributing) | [Sponsors](#sponsors) | [Support](#support)
 
 ## Using
 
@@ -140,6 +140,15 @@ Once you’ve done a bit of searching and discovered there isn’t an open or fi
 Want to contribute a new feature? Please first [open a new issue](https://github.com/salcode/wp-cli-find-content/issues/new) to discuss whether the feature is a good fit for the project.
 
 Once you've decided to commit the time to seeing your pull request through, [please follow our guidelines for creating a pull request](https://make.wordpress.org/cli/handbook/pull-requests/) to make sure it's a pleasant experience. See "[Setting up](https://make.wordpress.org/cli/handbook/pull-requests/#setting-up)" for details specific to working on this package locally.
+
+## Sponsors
+
+These companies or individuals have sponsored this project or a specific
+feature of the project.
+
+- [Sal Ferrarello](@salcode)
+- [Iron Code Studio](@ironcodestudio)
+- [Gamajo](@gamajo)
 
 ## Support
 

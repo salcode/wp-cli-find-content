@@ -61,6 +61,7 @@ wp find-content <query>... [--format=<format>] [--fields=<fields>]
     +----+----------------------------+----------+
 
     # Find instances of regular expression "y[[:alpha:]]{2}rz?[[:space:]]first[[:space:]]*pos[ert]"
+    # Development Sponsored by Gamajo https://gamajo.com/
     # Note: MySQL uses some less common regex syntax, see
     # https://dev.mysql.com/doc/refman/5.7/en/regexp.html#regexp-syntax
     $ wp find-content "y[[:alpha:]]{2}rz?[[:space:]]first[[:space:]]*pos[ert]" --regex

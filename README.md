@@ -60,6 +60,16 @@ wp find-content <query>... [--format=<format>] [--fields=<fields>]
     | 1  | http://wp.test/hello-world | content  |
     +----+----------------------------+----------+
 
+    # Find instances of regular expression "y[[:alpha:]]{2}rz?[[:space:]]first[[:space:]]*pos[ert]"
+    # Note: MySQL uses some less common regex syntax, see
+    # https://dev.mysql.com/doc/refman/5.7/en/regexp.html#regexp-syntax
+    $ wp find-content "y[[:alpha:]]{2}rz?[[:space:]]first[[:space:]]*pos[ert]" --regex
+    +----+----------------------------+----------+
+    | ID | permalink                  | location |
+    +---+-----------------------------+----------+
+    | 1  | http://wp.test/hello-world | content  |
+    +----+----------------------------+----------+
+
     # Find instances of 'Description of this example post.'
     $ wp find-content 'Description of this example post.' --fields=ID,permalink,location,meta_key
     +----+------------------------------+----------+----------------------+

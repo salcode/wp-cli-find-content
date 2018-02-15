@@ -46,28 +46,6 @@ class FindContentCommand extends WP_CLI_Command {
 	protected $regex = false;
 
 	/**
-	 * Pass PCRE modifiers to the regex search
-	 * (e.g. 'i' for case-insensitivity).
-	 *
-	 * @since 0.2.0
-	 *
-	 * @var string
-	 */
-	protected $regex_flags = '';
-
-	/**
-	 * Delimiter to use for regex.
-	 *
-	 * The delimiter to use for the regex. It must be escaped if it appears
-	 * in the search string. The default value is the result of `chr(1)`.
-	 *
-	 * @since 0.2.0
-	 *
-	 * @var string|null
-	 */
-	protected $regex_delimiter;
-
-	/**
 	 * Array of posts where query was found.
 	 *
 	 * @since 0.1.0
@@ -106,12 +84,6 @@ class FindContentCommand extends WP_CLI_Command {
 	 *
 	 * [--regex]
 	 * : Runs the search as a regular expression (without delimiters). The search becomes case-sensitive (i.e. no PCRE flags are added). Delimiters must be escaped if they occur in the expression.
-	 *
-	 * [--regex-flags=<regex-flags>]
-	 * : Pass PCRE modifiers to the regex search (e.g. 'i' for case-insensitivity).
-	 *
-	 * [--regex-delimiter=<regex-delimiter>]
-	 * : The delimiter to use for the regex. It must be escaped if it appears in the search string. The default value is the result of `chr(1)`.
 	 *
 	 * [--format=<format>]
 	 * : Render output in a particular format.
@@ -210,16 +182,6 @@ class FindContentCommand extends WP_CLI_Command {
 			$assoc_args,
 			'regex',
 			$this->regex
-		);
-		$this->regex_flags = Utils\get_flag_value(
-			$assoc_args,
-			'regex-flags',
-			$this->regex_flags
-		);
-		$this->regex_delimiter = Utils\get_flag_value(
-			$assoc_args,
-			'regex-delimiter',
-			chr(1)
 		);
 
 		while ( count( $args ) > 0 ) {
